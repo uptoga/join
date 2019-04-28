@@ -13,9 +13,7 @@ function join {
         [System.Func[System.Object, System.Object, System.Object]] {
             param($x, $y);
             
-            # $xf = $x | gm | ? { $_.MemberType -eq 'NoteProperty' } | % name
             $xf = $x[0].psobject.Properties.name
-            # $yf = $y | gm | ? { $_.MemberType -eq 'NoteProperty' } | % name
             $yf = $y[0].psobject.Properties.name
             $ht = @{ }
             foreach ($f in $xf) { $ht.Add($f, $x.($f)) }
@@ -41,9 +39,7 @@ function groupJoin {
         [System.Func[System.Object, [Collections.Generic.Ienumerable[System.Object]], System.Object]] {
             param($x, $yenum);
             $y = [System.Linq.Enumerable]::SingleOrDefault($yenum)
-            # $xf = $x | gm | ? { $_.MemberType -eq 'NoteProperty' } | % name
             $xf = $x[0].psobject.Properties.name
-            # $yf = $y | gm | ? { $_.MemberType -eq 'NoteProperty' } | % name
             $yf = $y.psobject.Properties.name
             $ht = @{ }
             foreach ($f in $xf) { $ht.Add($f, $x.($f)) }
