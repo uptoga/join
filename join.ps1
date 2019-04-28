@@ -2,8 +2,8 @@ function join {
     param(
         $left,
         $right,
-        $lon,
-        $requal
+        [string]$lon,
+        [string]$requal
     )
     $lnqData = [System.Linq.Enumerable]::Join(
         $left,
@@ -28,8 +28,8 @@ function groupJoin {
     param(
         $left,
         $right,
-        $lon,
-        $requal
+        [string]$lon,
+        [string]$requal
     )
     $lnqData = [System.Linq.Enumerable]::GroupJoin(
         $left,
